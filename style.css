@@ -1,0 +1,71 @@
+/* style.css */
+body {
+  margin: 0;
+  font-family: 'Georgia', serif;
+  background: #5e3b8b; /* warm purple */
+  overflow: hidden;     /* prevents scrollbars */
+  color: #fff8f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.poem-container {
+  position: relative;
+  max-width: 600px;
+  background: rgba(0,0,0,0.3); /* semi-transparent to see stars */
+  padding: 30px 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+h1 {
+  color: #e0c3fc;
+  margin-bottom: 20px;
+}
+
+p {
+  line-height: 1.8;
+  font-size: 18px;
+}
+
+/* stars */
+.star {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite alternate, drift linear infinite;
+}
+
+@keyframes twinkle {
+  0% { opacity: 0.2; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+  100% { opacity: 0.2; transform: scale(1); }
+}
+
+@keyframes drift {
+  0% { transform: translate(0,0); }
+  100% { transform: translate(var(--x), var(--y)); }
+}
+.poem-container {
+  position: relative;
+  max-width: 600px;
+  max-height: 80vh; /* limit height to 80% of viewport */
+  overflow-y: auto; /* allow vertical scroll */
+  background: rgba(0,0,0,0.3);
+  padding: 30px 40px;
+  border-radius: 15px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  z-index: 1;
+}
+@media (max-width: 700px) {
+  .poem-container {
+    padding: 20px;
+    font-size: 16px;
+  }
+}
